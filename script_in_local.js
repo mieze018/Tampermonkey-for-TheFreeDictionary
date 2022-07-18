@@ -10,11 +10,11 @@
   const commonPopupFeatures = 'menubar=no,toolbar=no,location=no,scrollbars=no,status=no,width=250,height=500';
 
   //flaticon
-  const openFlaticonPopupWindow =()=> window.open(`https://www.flaticon.com/search?word=${searchedWord}`, "flaticon", `${commonPopupFeatures}`).focus();
-  openFlaticonPopupWindow()
+  const openFlaticonPopupWindow = window.open(`https://www.flaticon.com/search?word=${searchedWord}`, "flaticon", `${commonPopupFeatures}`);
+  openFlaticonPopupWindow.focus();
 
-  const openIconFinderPopupWindow = () => window.open(`https://www.iconfinder.com/search/?q=${searchedWord}`, "icon8", `${commonPopupFeatures} top=500 `).focus();
-  openIconFinderPopupWindow()
 
+  const openIconFinderPopupWindow = window.open(`https://www.iconfinder.com/search/?q=${searchedWord}`, "icon8", `${commonPopupFeatures} top=500 `);
+  openIconFinderPopupWindow.focus();
 
 })();
