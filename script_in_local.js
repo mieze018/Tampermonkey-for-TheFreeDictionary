@@ -12,11 +12,10 @@
   const languageTargetTranslation = 'ja'
 
   // icon finder
-  const openIconFinderPopupWindow = window.open(`https://www.iconfinder.com/search/?q=${searchedWord}`, "icon8", `${commonPopupFeatures}`);
-  openIconFinderPopupWindow.focus();
+  const IconFinderPopupWindow = window.open(`https://www.iconfinder.com/search/?q=${searchedWord}`, "icon8", `${commonPopupFeatures}`);
 
   //everyPixel
-  const openEveryPixelPopupWindow = window.open(`https://everypixel.com/search?q=${searchedWord}`, "everyPixel", `${commonPopupFeatures} top=580 `);
+  const EveryPixelPopupWindow = window.open(`https://everypixel.com/search?q=${searchedWord}`, "everyPixel", `${commonPopupFeatures} top=580 `);
 
   //deepL
   const newLineForDeepL = '%0A'
@@ -26,7 +25,7 @@
   console.log(definitionText1);
   const definitionText2 = Array.from(definitionElements2).map(element => element.innerText).join(newLineForDeepL);
   // console.log(definitionText);
-  const openDeepPopupWindow = window.open(`https://www.deepl.com/translator#en/${languageTargetTranslation}/${searchedWord}
+  const DeepPopupWindow = window.open(`https://www.deepl.com/translator#en/${languageTargetTranslation}/${searchedWord}
   ${newLineForDeepL}${newLineForDeepL}
   ${definitionText1}
   ${newLineForDeepL}${newLineForDeepL}
@@ -36,9 +35,9 @@
 
   //on leave page
   window.onbeforeunload = () => {
-    openIconFinderPopupWindow?.close();
-    openDeepPopupWindow?.close();
-    openEveryPixelPopupWindow?.close();
+    IconFinderPopupWindow?.close();
+    DeepPopupWindow?.close();
+    EveryPixelPopupWindow?.close();
   }
 
 })();
