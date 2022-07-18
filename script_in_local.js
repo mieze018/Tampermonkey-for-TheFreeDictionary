@@ -32,6 +32,10 @@
   ${definitionText2}
   `, "deepL", `${commonPopupFeatures} top=1160 left=0 width=500 `);
 
+  // focus
+  IconFinderPopupWindow.focus();
+  EveryPixelPopupWindow.focus();
+  DeepPopupWindow.focus();
 
   //on leave page
   window.onbeforeunload = () => {
