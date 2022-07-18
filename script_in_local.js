@@ -17,4 +17,10 @@
   const openIconFinderPopupWindow = window.open(`https://www.iconfinder.com/search/?q=${searchedWord}`, "icon8", `${commonPopupFeatures} top=500 `);
   openIconFinderPopupWindow.focus();
 
+  //on leave page
+  window.onbeforeunload = () => {
+    openFlaticonPopupWindow?.close();
+    openIconFinderPopupWindow?.close();
+  }
+
 })();
