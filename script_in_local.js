@@ -9,10 +9,6 @@
   const languageSource = 'en'
   const languageTargetTranslation = 'ja'
 
-  //flaticon
-  const openFlaticonPopupWindow = window.open(`https://www.flaticon.com/search?word=${searchedWord}`, "flaticon", `${commonPopupFeatures}`);
-  openFlaticonPopupWindow.focus();
-
   // icon finder
   const openIconFinderPopupWindow = window.open(`https://www.iconfinder.com/search/?q=${searchedWord}`, "icon8", `${commonPopupFeatures} top=580 `);
   openIconFinderPopupWindow.focus();
@@ -22,7 +18,6 @@
 
   //on leave page
   window.onbeforeunload = () => {
-    openFlaticonPopupWindow?.close();
     openIconFinderPopupWindow?.close();
     openDeepPopupWindow?.close();
   }
