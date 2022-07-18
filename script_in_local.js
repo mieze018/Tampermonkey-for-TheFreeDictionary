@@ -8,6 +8,7 @@
   $('aside#sidebar').append(`<section class="widget"><iframe src="https://www.bing.com/images/search?q=${searchedWord}&amp;FORM=HDRSC2" style=" height: 500px;"></section>`);
 
   const commonPopupFeatures = 'menubar=no,toolbar=no,location=no,scrollbars=no,status=no,width=500,height=500';
+  const languageSource = 'en'
   const languageTargetTranslation = 'ja'
 
   //flaticon
@@ -21,11 +22,14 @@
   //deepL
   const openDeepPopupWindow = window.open(`https://www.deepl.com/translator#en/${languageTargetTranslation}/${searchedWord}`, "deepL", `${commonPopupFeatures} top=1160 left=0 width=500 `);
 
+  //forvo
+  const openForvoPopupWindow = window.open(`https://forvo.com/search/${searchedWord}/${languageSource}/`, "forvo", `${commonPopupFeatures} top=1160 left=500 width=500 `);
   //on leave page
   window.onbeforeunload = () => {
     openFlaticonPopupWindow?.close();
     openIconFinderPopupWindow?.close();
     openDeepPopupWindow?.close();
+    openForvoPopupWindow?.close();
   }
 
 })();
