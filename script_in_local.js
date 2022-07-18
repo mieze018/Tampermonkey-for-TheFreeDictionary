@@ -12,8 +12,11 @@
   const languageTargetTranslation = 'ja'
 
   // icon finder
-  const openIconFinderPopupWindow = window.open(`https://www.iconfinder.com/search/?q=${searchedWord}`, "icon8", `${commonPopupFeatures} top=580 `);
+  const openIconFinderPopupWindow = window.open(`https://www.iconfinder.com/search/?q=${searchedWord}`, "icon8", `${commonPopupFeatures}`);
   openIconFinderPopupWindow.focus();
+
+  //everyPixel
+  const openEveryPixelPopupWindow = window.open(`https://everypixel.com/search?q=${searchedWord}`, "everyPixel", `${commonPopupFeatures} top=580 `);
 
   //deepL
   const newLineForDeepL = '%0A'
@@ -35,6 +38,7 @@
   window.onbeforeunload = () => {
     openIconFinderPopupWindow?.close();
     openDeepPopupWindow?.close();
+    openEveryPixelPopupWindow?.close();
   }
 
 })();
