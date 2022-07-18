@@ -7,7 +7,7 @@
   //bing images
   $('aside#sidebar').append(`<section class="widget"><iframe src="https://www.bing.com/images/search?q=${searchedWord}&amp;FORM=HDRSC2" style=" height: 500px;"></section>`);
 
-  const commonPopupFeatures = 'menubar=no,location=no,resizable=no,scrollbars=no,status=no,width=500,height=500';
+  const commonPopupFeatures = 'menubar=no,toolbar=no,location=no,scrollbars=no,status=no,width=200,height=500';
 
   //flaticon
   const openFlaticonPopupWindow =()=> window.open(`https://www.flaticon.com/search?word=${searchedWord}`, "flaticon", `${commonPopupFeatures}`);
