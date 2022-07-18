@@ -20,14 +20,11 @@
   //deepL
   const openDeepPopupWindow = window.open(`https://www.deepl.com/translator#en/${languageTargetTranslation}/${searchedWord}`, "deepL", `${commonPopupFeatures} top=1160 left=0 width=500 `);
 
-  //forvo
-  const openForvoPopupWindow = window.open(`https://forvo.com/search/${searchedWord}/${languageSource}/`, "forvo", `${commonPopupFeatures} top=1160 left=500 width=500 `);
   //on leave page
   window.onbeforeunload = () => {
     openFlaticonPopupWindow?.close();
     openIconFinderPopupWindow?.close();
     openDeepPopupWindow?.close();
-    openForvoPopupWindow?.close();
   }
 
 })();
