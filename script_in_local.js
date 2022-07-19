@@ -7,7 +7,7 @@
   //url query decode
   const searchedWord = decodeURIComponent(undecodedSearchedWord).replace(/\+/g, ' ');
 
-  const commonPopupFeatures = 'menubar=no,toolbar=no,location=no,scrollbars=no,status=no,width=500,height=500';
+  const commonPopupFeatures = 'menubar=no,toolbar=no,location=no,scrollbars=no,status=no,width=500,height=500,right=0';
   const languageSource = 'en'
   const languageTargetTranslation = 'ja'
 
@@ -19,18 +19,25 @@
 
   //deepL
   const newLineForDeepL = '%0A'
-  const definitionElements1 = document.getElementsByClassName('ds-single');
-  const definitionElements2 = document.getElementsByClassName('ds-list');
-  const definitionText1 = Array.from(definitionElements1).map(element => element.innerText).join(newLineForDeepL).replace(/\n/g, newLineForDeepL);
-  console.log(definitionText1);
-  const definitionText2 = Array.from(definitionElements2).map(element => element.innerText).join(newLineForDeepL);
-  // console.log(definitionText);
+  const selectorInDictionary = '#Definition > section:nth-child(1) :where(.ds-list,.ds-single)'
+  const selectorInThesaurus = '#MainTxt > section:nth-child(5) > div.TM h3'
+  const selectorInEncyclopedia = '#Definition > section .runseg'
+  let definitionElements1 = document.querySelectorAll(`:is(${selectorInDictionary}, ${selectorInThesaurus} , ${selectorInEncyclopedia})`);
+  // definitionElements1 = definitionElements1.length === 0 ? document.querySelectorAll('#Definition') : definitionElements1
+
+  console.log(definitionElements1);
+
+  const definitionText1All = Array.from(definitionElements1).
+    map(element => element.innerText)
+    .join(newLineForDeepL)
+    .replace(/\n/g, newLineForDeepL);
+  console.log(definitionText1All);
+
   const DeepPopupWindow = window.open(`https://www.deepl.com/translator#en/${languageTargetTranslation}/${searchedWord}
+  ${newLineForDeepL}
+  ${definitionText1All ?? ''}
   ${newLineForDeepL}${newLineForDeepL}
-  ${definitionText1}
-  ${newLineForDeepL}${newLineForDeepL}
-  ${definitionText2}
-  `, "deepL", `${commonPopupFeatures} top=1160 left=0 width=500 `);
+  `, "deepL", `${commonPopupFeatures} top=1160 width=500 `);
 
   // focus
   IconFinderPopupWindow.focus();
